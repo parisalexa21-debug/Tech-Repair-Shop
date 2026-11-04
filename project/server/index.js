@@ -110,13 +110,6 @@ app.post("/api/inquiries", (req, res) => {
   res.status(201).json({ id: entry.id, received: true });
 });
 
-app.get("/api/inquiries", (_req, res) => {
-  res.json({
-    count: inquiries.length,
-    note: "Listing is for internal admin use; remove or protect in production.",
-    items: inquiries.slice(-50).reverse(),
-  });
-});
 
 app.post("/api/orders", (req, res) => {
   const { items, shipping, payment } = req.body ?? {};
